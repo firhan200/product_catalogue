@@ -2,7 +2,7 @@ export default function StarRating({ rating}: { rating: number }) {
 	return (
 		<div className="flex gap-2 items-center">
 			<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-				width="15px" height="15px" viewBox="0 0 64 64" enable-background="new 0 0 64 64">
+				width="15px" height="15px" viewBox="0 0 64 64" enableBackground="new 0 0 64 64">
 				<g>
 					<path fill="#394240" d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701
 		l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478 M31.998,0

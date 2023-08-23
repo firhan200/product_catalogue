@@ -46,3 +46,8 @@ export const getProducts = async (search: string, limit: number, skip: number) :
 
 	return responseModel;
 }
+
+export const getProduct = async (id: string) : Promise<Product | null> => {
+	const res = await axios.get(`${API_URL}products/${id}`);
+	return res.data;
+}

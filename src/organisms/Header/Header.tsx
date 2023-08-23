@@ -12,7 +12,7 @@ const Header = () => {
 					</label>
 					<Menu type={MenuType.MOBILE}/>
 				</div>
-				<a className="btn btn-ghost normal-case text-xl">Catelogue</a>
+				<a className="btn btn-ghost normal-case text-xl">Catalogue</a>
 			</div>
 			<div className="navbar-center hidden lg:flex">
 				<Menu type={MenuType.DEKSTOP}/>
