@@ -13,13 +13,18 @@ import RemoveCart from "../../atoms/RemoveCart/RemoveCart";
 export default function CartCard({ cart }: { cart: CartItem }) {
 	const LoadingState = () => {
 		return (
-			<div className="grid grid-cols-1 md:grid-cols-3">
-				<SkeletonLoading type={SkeletonLoadingType.square} isFull={true} height={80} />
-				<div>
-					<SkeletonLoading type={SkeletonLoadingType.square} width="90%" height={20} />
-					<SkeletonLoading type={SkeletonLoadingType.square} width="100%" height={20} />
+			<div className="grid grid-cols-1 md:grid-cols-7 gap-6 justify-items-center md:justify-items-start place-items-center">
+				<SkeletonLoading type={SkeletonLoadingType.square} width={100} height={100} />
+				<div className="md:col-span-3 w-full">
+					<SkeletonLoading type={SkeletonLoadingType.square} height={30} />
+					<br/>
+					<SkeletonLoading type={SkeletonLoadingType.square} height={30} />
 				</div>
-				<SkeletonLoading type={SkeletonLoadingType.square} width="100%" height={30} />
+				<div className="md:col-span-2 grid grid-cols-2 place-items-center gap-4">
+					<SkeletonLoading type={SkeletonLoadingType.square} width={50} height={30} />
+					<SkeletonLoading type={SkeletonLoadingType.square} width={50} height={30} />
+				</div>
+				<SkeletonLoading type={SkeletonLoadingType.square} width={50} height={30} />
 			</div>
 		);
 	}
@@ -58,10 +63,10 @@ export default function CartCard({ cart }: { cart: CartItem }) {
 				<ProductDescription description={description} />
 			</div>
 			<div className="md:col-span-2 grid grid-cols-2 place-items-center">
-				<ProductQtySelect productId={id} qty={cart.qty} stock={stock}/>
+				<ProductQtySelect productId={id} qty={cart.qty} stock={stock} />
 				<Price price={cart.qty * price} />
 			</div>
-			<RemoveCart productId={ id }/>
+			<RemoveCart productId={id} />
 		</div>
 	);
 }

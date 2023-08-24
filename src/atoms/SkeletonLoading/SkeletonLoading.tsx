@@ -12,18 +12,18 @@ export type SkeletonLoadingProps = {
 const SkeletonLoading = ({ type, width, height, isFull, isCenter }: SkeletonLoadingProps) => {
 	const renderArea = () => {
 		let areaClass = '';
-		const isFullClass = isFull ? 'w-full' : 'w-auto';
+		const isFullClass = isFull ? ' w-full' : ' w-auto';
 		const widthStyle = isFull ? '100%' : width
-		const center = typeof isCenter !== 'undefined' ? (isCenter ? 'mx-auto' : '') : ''
+		const center = typeof isCenter !== 'undefined' ? (isCenter ? ' mx-auto' : '') : ''
 
 		if(type === SkeletonLoadingType.round){
-			areaClass = 'rounded-full';
+			areaClass = ' rounded-full';
 		}
 
 		return <div style={{
 			height: height,
 			width : widthStyle
-		}} className={`bg-base-300 ${center} ${areaClass} ${isFullClass}`}></div>
+		}} className={`bg-base-300${center}${areaClass}${isFullClass}`}></div>
 	}
 
 	return (

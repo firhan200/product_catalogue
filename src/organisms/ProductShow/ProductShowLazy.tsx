@@ -30,7 +30,9 @@ export default function ProductShowLazy({ category }: { category: string }) {
 	}
 
 	return (
-		<InView as="div" onChange={(inView) => setComponentInView(inView)}>
+		<InView as="div" style={{
+			minHeight: '500px'
+		}} threshold={0.2} onChange={(inView) => setComponentInView(inView)}>
 			<Suspense fallback={ <LoadingState /> }>
 				{
 					isShown ? <ProductShow category={category} /> : null
