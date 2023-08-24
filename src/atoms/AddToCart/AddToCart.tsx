@@ -26,8 +26,8 @@ export default function AddToCart({ productId, stock }: { productId: number, sto
 	}
 
 	return (
-		<form onSubmit={submit} className="mt-4">
-			<select value={qty} onChange={onQtyChange} className="select select-bordered w-full max-w-xs" required>
+		<form onSubmit={submit} className="mt-4 grid grid-cols-2 md:grid-cols-3 max-w-md">
+			<select value={qty} onChange={onQtyChange} className="md:col-span-2 select select-bordered w-full" required>
 				<option disabled value="0">Select Quantity</option>
 				{
 					[...Array(stock)].map((_, index) => (
@@ -35,7 +35,7 @@ export default function AddToCart({ productId, stock }: { productId: number, sto
 					))
 				}
 			</select>
-			<button className="btn btn-default">Add to Cart</button>
+			<button className="btn btn-default w-full">Add to Cart</button>
 		</form>
 	)
 }

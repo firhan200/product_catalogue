@@ -1,6 +1,10 @@
+import CartList from "../../organisms/CartList/CartList";
+
 const CartPage = () => {
 	return (
-		<>Cart Page</>
+		<>
+		<CartList />
+		</>
 	);
 }
 
