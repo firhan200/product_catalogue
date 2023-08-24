@@ -29,7 +29,7 @@ const ProductList = () => {
 	} = useInfiniteQuery({
 		queryKey: ['products'],
 		queryFn: ({ pageParam = 0 }) => {
-			return getProducts('', limit, pageParam);
+			return getProducts('', '', limit, pageParam);
 		},
 		getNextPageParam: (lastPage) => {
 			return lastPage.skip + limit;
@@ -46,7 +46,7 @@ const ProductList = () => {
 
 	return (
 		<>
-			<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
+			<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
 				{
 					data?.pages.map((group, groupKey) => (
 						<React.Fragment key={groupKey}>

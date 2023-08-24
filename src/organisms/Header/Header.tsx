@@ -7,7 +7,7 @@ import ThemeToggle from "../../molecules/ThemeToggle/ThemeToggle";
 const Header = () => {
 	return (
 		<>
-			<div className="navbar bg-base-100">
+			<div className="navbar sticky top-0 z-50 bg-base-100 shadow-lg">
 				<div className="navbar-start">
 					<Link to="/" className="btn btn-ghost normal-case text-xl">Catalogue</Link>
 				</div>

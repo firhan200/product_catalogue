@@ -8,6 +8,7 @@ import ProductTitle from "../../atoms/ProductTitle/ProductTitle";
 import ProductDescription from "../../atoms/ProductDescription/ProductDescription";
 import Price from "../../atoms/Price/Price";
 import ProductQtySelect from "../../atoms/ProductQtySelect/ProductQtySelect";
+import RemoveCart from "../../atoms/RemoveCart/RemoveCart";
 
 export default function CartCard({ cart }: { cart: CartItem }) {
 	const LoadingState = () => {
@@ -50,14 +51,17 @@ export default function CartCard({ cart }: { cart: CartItem }) {
 	const { id, thumbnail, title, description, price, stock } = data!;
 
 	return (
-		<div className="grid grid-cols-1 md:grid-cols-5 gap-6 justify-items-start place-items-center">
+		<div className="grid grid-cols-1 md:grid-cols-7 gap-6 justify-items-center md:justify-items-start place-items-center">
 			<Image src={thumbnail} />
-			<div className="col-span-2">
+			<div className="md:col-span-3">
 				<ProductTitle title={title} />
 				<ProductDescription description={description} />
 			</div>
-			<ProductQtySelect productId={id} qty={cart.qty} stock={stock}/>
-			<Price price={cart.qty * price} />
+			<div className="md:col-span-2 grid grid-cols-2 place-items-center">
+				<ProductQtySelect productId={id} qty={cart.qty} stock={stock}/>
+				<Price price={cart.qty * price} />
+			</div>
+			<RemoveCart productId={ id }/>
 		</div>
 	);
 }

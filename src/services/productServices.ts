@@ -23,8 +23,8 @@ export interface Product {
 	images: string[]
 }
 
-export const getProducts = async (search: string, limit: number, skip: number) : Promise<GetProductsResponse> => {
-	let responseModel : GetProductsResponse = <GetProductsResponse>{
+export const getProducts = async (search: string, category: string, limit: number, skip: number): Promise<GetProductsResponse> => {
+	let responseModel: GetProductsResponse = <GetProductsResponse>{
 		products: [],
 		limit: limit,
 		skip: skip,
@@ -33,13 +33,18 @@ export const getProducts = async (search: string, limit: number, skip: number) :
 
 	let url = `${API_URL}products/`;
 
-	//paginate
-	url += `?skip=${skip}&limit=${limit}`;
-
 	//check if searching
 	if (search !== '') {
-		url += `&q=${search}`;
+		url += `search?q=${search}&`;
 	}
+	else {
+		if (category !== '' && category !== null) {
+			url += `category/${category}`;
+		}
+	}
+
+	//paginate
+	url += `?skip=${skip}&limit=${limit}`;
 
 	const res = await axios.get(url);
 	responseModel = <GetProductsResponse>res.data;
@@ -47,7 +52,13 @@ export const getProducts = async (search: string, limit: number, skip: number) :
 	return responseModel;
 }
 
-export const getProduct = async (id: string) : Promise<Product | null> => {
+export const getProduct = async (id: string): Promise<Product | null> => {
 	const res = await axios.get(`${API_URL}products/${id}`);
+	return res.data;
+}
+
+
+export const getCategories = async () : Promise<string[]> => {
+	const res = await axios.get(`${API_URL}products/categories`);
 	return res.data;
 }

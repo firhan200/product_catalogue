@@ -28,7 +28,7 @@ export default function ProductQtySelect({ productId, stock, qty }: ProductQtySe
 	}, [productId, show, updateProductQty]);
 
 	return (
-		<select value={selectedQty} onChange={(e) => updateQty(parseInt(e.target.value))} className="select select-bordered w-60 md:w-full lg:w-40" required>
+		<select value={selectedQty} onChange={(e) => updateQty(parseInt(e.target.value))} className="select select-bordered w-full" required>
 			<option disabled value="0">Select Quantity</option>
 			{
 				[...Array(stock)].map((_, index) => (

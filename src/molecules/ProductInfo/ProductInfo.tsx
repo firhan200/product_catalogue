@@ -10,7 +10,7 @@ export default function ProductInfo({ product }: { product: Product }) {
 	return (
 		<div className="flex flex-col gap-1">
 			<ProductTitle title={product.title} />
-			<Badge label={product.brand} />
+			<Badge label={product.category} />
 			<div className="flex gap-4 my-4">
 				<Price price={product.price} />
 				<StarRating rating={product.rating} />
